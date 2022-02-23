@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control'
+@MappingRole: true
+define role ZC_04_BOOK_TP {
+    grant
+        select
+            on
+                ZC_04_BOOK_TP
+                    where
+                        (Carrid) = aspect pfcg_auth (s_carrid, carrid);
+                        
+}
