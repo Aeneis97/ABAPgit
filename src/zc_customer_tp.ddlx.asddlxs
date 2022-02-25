@@ -1,0 +1,46 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+
+annotate view ZC_04_Customer_TP
+    with 
+{
+@UI.facet: [{
+            position: 10,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Booking Information'
+ },
+ { position: 20,type:#LINEITEM_REFERENCE,targetElement: '_Booking',label:'Bookings'}
+ ]
+ 
+ @UI.selectionField: [{position: 10}]
+  @UI.lineItem: [
+    { position: 10 },
+    { position: 10, type: #FOR_ACTION, dataAction: 'BOPF:ZC_04_BOOK_DISCOUNT', label: 'Increase Discount' }]
+ @UI.identification: [{position: 10}]
+ @Search.fuzzinessThreshold: 0.7
+    Id;
+ @UI.lineItem: [{position: 20}]
+ @Search.defaultSearchElement: true
+ @Search.fuzzinessThreshold: 0.7
+ @UI.identification: [{position: 20}]
+    Name;
+ @UI.lineItem: [{position: 30}]
+ @UI.identification: [{position: 30}]
+    Street;
+ @UI.lineItem: [{position: 40}]
+ @UI.identification: [{position: 40}]
+    Postcode;
+ @UI.selectionField: [{position: 50}]
+ @UI.identification: [{position: 50}]
+ @Search.fuzzinessThreshold: 0.7
+    City;
+ @UI.selectionField: [{position: 60}]
+ @UI.identification: [{position: 60}]
+    Country;
+ @UI.lineItem: [{position: 70}]
+ @UI.identification: [{position: 70}]
+    Discount;
+    /* Associations */
+//    _Bookings;
+    
+}

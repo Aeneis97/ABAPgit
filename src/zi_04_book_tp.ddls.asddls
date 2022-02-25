@@ -4,7 +4,22 @@
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Transactional View'
 @VDM.viewType: #TRANSACTIONAL
-define view ZI_04_Book_TP as select from ZI_04_Book {
+
+@ObjectModel: 
+{
+writeActivePersistence: 'sbook',
+
+representativeKey: ['CarrID', 'ConnID'],
+semanticKey: ['CarrID', 'ConnID'],
+
+createEnabled: true,
+updateEnabled: true,
+deleteEnabled: true
+}
+
+define view ZI_04_Book_TP as select from ZI_04_Book 
+association [1..1] to ZI_04_Customer_TP as _Customer on ZI_04_Book.Customid = _Customer.Id
+{
     key Carrid,
     key Connid,
     key Fldate,
@@ -12,5 +27,7 @@ define view ZI_04_Book_TP as select from ZI_04_Book {
     Customid,
     Class,
     OrderDate,
-    Counter
+    Counter,
+    @ObjectModel.association.type: [#TO_COMPOSITION_PARENT, #TO_COMPOSITION_ROOT]
+    _Customer
 }

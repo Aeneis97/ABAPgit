@@ -3,9 +3,25 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Consumption View'
-@VDM.viewType: 'Consumption'
+@VDM.viewType: #CONSUMPTION
+@OData.publish: true
+@Metadata.allowExtensions: true
+
+@UI.headerInfo: [{ title.value: 'Booking' , 
+                   description.value: 'Booking',
+                   typeName: 'Booking',
+                   typeNamePlural: 'Bookings'
+}]
+
+@ObjectModel: {
+createEnabled: true,
+deleteEnabled: true,
+updateEnabled: true
+}
+
 define view ZC_04_Book_TP as select from ZI_04_Book_TP 
-association [1] to ZC_04_Customer_TP as _Customer on _Customer.Id  = ZI_04_Book_TP.Customid {
+association [1..1] to ZC_04_Customer_TP as _Customers 
+on ZI_04_Book_TP.Customid = _Customers.Id {
     key Carrid,
     key Connid,
     key Fldate,
@@ -14,5 +30,7 @@ association [1] to ZC_04_Customer_TP as _Customer on _Customer.Id  = ZI_04_Book_
     Class,
     OrderDate,
     Counter,
-    _Customer
+    @Consumption.valueHelp: '_Customer'
+    @ObjectModel.association.type: [#TO_COMPOSITION_PARENT, #TO_COMPOSITION_ROOT]
+    _Customers
 }

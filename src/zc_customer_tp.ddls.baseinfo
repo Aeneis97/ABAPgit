@@ -7,9 +7,13 @@
 ],
 "ASSOCIATED":
 [
-"ZC_04_BOOK_TP"
+"ZC_04_BOOK_TP",
+"ZC_04_VALUEHELP"
 ],
 "BASE":
-[]
+[],
+"ANNO_REF":
+[],
+"VERSION":0
 }
 }

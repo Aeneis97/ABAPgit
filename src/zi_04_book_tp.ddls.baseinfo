@@ -6,8 +6,13 @@
 "ZI_04_BOOK"
 ],
 "ASSOCIATED":
-[],
+[
+"ZI_04_CUSTOMER_TP"
+],
 "BASE":
-[]
+[],
+"ANNO_REF":
+[],
+"VERSION":0
 }
 }

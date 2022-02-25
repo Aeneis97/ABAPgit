@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+
+annotate view ZC_04_Book_TP
+    with 
+{
+@UI.facet: [{
+            position: 10,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Booking Information'
+ }]
+ 
+     @UI.identification: [{position: 10}]
+     @UI.lineItem: [{position: 10}]
+    Carrid;
+     @UI.identification: [{position: 20}]
+     @UI.lineItem: [{position: 20}]
+    Connid;
+     @UI.identification: [{position: 30}]
+     @UI.lineItem: [{position: 30}]
+    Fldate;
+     @UI.identification: [{position: 40}]
+     @UI.lineItem: [{position: 40}]
+    Bookid;
+     @UI.identification: [{position: 50}]
+     @UI.lineItem: [{position: 50}]
+    Customid;
+     @UI.identification: [{position: 60}]
+     @UI.lineItem: [{position: 60}]
+    Class;
+     @UI.identification: [{position: 70}]
+     @UI.lineItem: [{position: 70}]
+    OrderDate;
+     @UI.identification: [{position: 80}]
+     @UI.lineItem: [{position: 80}]
+    Counter;
+    /* Associations */
+//    _Customer;
+    
+}
